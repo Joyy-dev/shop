@@ -71,6 +71,10 @@ flutter:
     - assets/images/sport-shoe.jpeg
     - assets/images/download.jpeg
     - assets/images/images.jpeg
+    - assets/icons/women-shoe.svg
+    - assets/icons/men-cloth.svg
+    - assets/icons/dress.svg
+    - assets/icons/offer.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

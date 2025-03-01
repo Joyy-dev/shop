@@ -1,4 +1,5 @@
 import 'package:ecommerce/provider/search.dart';
+import 'package:ecommerce/widget/category_button.dart';
 import 'package:ecommerce/widget/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,6 +72,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     if (showSuggestion) SearchPage()
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20,),
+              Container(
+                color: Theme.of(context).canvasColor,
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Category', 
+                        style: TextStyle(
+                          fontSize: 18, 
+                          fontWeight: FontWeight.bold
+                        )),
+                        TextButton(onPressed: () {}, child: Text('View More'))
+                      ],
+                    ),
+                    const SizedBox(height: 10,),
+                    CategoryButton()
                   ],
                 ),
               )
