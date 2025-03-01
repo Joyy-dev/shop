@@ -1,10 +1,30 @@
+import 'package:ecommerce/provider/search.dart';
+import 'package:ecommerce/widget/search_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:standard_searchbar/old/standard_searchbar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    bool showSuggestion = false;
+
+    void _updateSuggestion(String query) {
+      final searchProvider = context.read<Search>();
+      searchProvider.filteredItems(query);
+
+      setState(() {
+        showSuggestion = query.isNotEmpty;
+      });
+    }
+
     return Scaffold(
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -44,6 +64,13 @@ class HomeScreen extends StatelessWidget {
                         IconButton(onPressed: () {}, icon: Icon(Icons.chat_bubble_outline)),
                       ],
                     ),
+                    const SizedBox(height: 10,),
+                    StandardSearchBar(
+                      onChanged: (value) {
+                        _updateSuggestion(value);
+                      },
+                    ),
+                    if (showSuggestion) SearchPage()
                   ],
                 ),
               )

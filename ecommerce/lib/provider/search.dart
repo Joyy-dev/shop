@@ -22,7 +22,7 @@ class Search with ChangeNotifier {
     {'title': 'Oversized Tshirt', 'images': 'assets/images/download.jpeg'}
   ];
 
-  List<String> _searchHistory = [];
+  final List<String> _searchHistory = [];
   List<Map<String, String>> _searchResults = [];
 
   Search() {
